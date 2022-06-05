@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\activatingRangeIndicator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\buyingScript.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\pop.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
@@ -65,8 +66,7 @@
     <Compile Include="Assets\Scripts\dartMonkey.cs" />
     <Compile Include="Assets\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
-    <Compile Include="Assets\Scripts\Platform.cs" />
-    <Compile Include="Assets\Scripts\buyingScript.cs" />
+    <Compile Include="Assets\Scripts\Upgrade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

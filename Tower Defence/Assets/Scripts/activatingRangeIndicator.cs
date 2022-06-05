@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class activatingRangeIndicator : MonoBehaviour
 {
 	public GameObject rangeIndicator;
 	public GameObject DartMonkey;
 	bool timeRunOut = false;
+
+	public dartMonkey dartMonkeyScript;
 
 	void Start()
 	{
@@ -36,7 +39,14 @@ public class activatingRangeIndicator : MonoBehaviour
 
 		if(DartMonkey.tag == "Buying")
 		{
-			rangeIndicator.SetActive(true);
+			if (dartMonkeyScript.isOnSomething == true)
+			{
+				rangeIndicator.SetActive(false);
+			}
+			else
+			{
+				rangeIndicator.SetActive(true);
+			}
 			StartCoroutine(waitTime());
 		}
 		

@@ -9,7 +9,7 @@ public class dartMonkey : MonoBehaviour
 
 	[Header("Attribtes")]
 
-	public float range = 4f;
+	public float range = 3f;
 	public float fireRate = 1f;
 	private float fireCountdown = 0f;
 	private float speed = 100f;
@@ -21,7 +21,7 @@ public class dartMonkey : MonoBehaviour
 	public GameObject bulletPrefab;
 	public Transform firePoint;
 	private Enemy targetEnemy;
-	private bool isOnSomething;
+	public bool isOnSomething;
 	public GameObject redCircle;
 	#endregion
 
@@ -82,6 +82,7 @@ public class dartMonkey : MonoBehaviour
 		{
 			gameObject.tag = "Idle";
 			gameObject.layer = LayerMask.NameToLayer("noCollision");
+			rb.isKinematic = true;
 		}
 
 		if(isOnSomething == true)
@@ -93,6 +94,8 @@ public class dartMonkey : MonoBehaviour
 		{
 			redCircle.SetActive(false);
 		}
+
+		
 		
 		//Once bought the obejct will now shoot and be able to target enemies.
 		if (gameObject.tag == "Idle")

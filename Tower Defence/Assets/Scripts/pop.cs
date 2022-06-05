@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class pop : MonoBehaviour
 {
-	private float countDown = 10f;
+	private float countDown = 5f;
 
 	void Update()
 	{
-		if(countDown < 1)
+		if(countDown > 1)
 		{
-			countDown += Time.deltaTime;
+			countDown -= 1;
 		}
 		else
 		{

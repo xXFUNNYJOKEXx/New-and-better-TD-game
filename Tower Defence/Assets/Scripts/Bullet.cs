@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     public float health = 3f;
-    public float lifeTime = 10f;
+    public float lifeTime = 100f;
 
     public GameObject pop;
 
@@ -24,7 +24,6 @@ public class Bullet : MonoBehaviour
 	{
         if (collision.gameObject.tag == "Enemy")
         {
-            Instantiate(pop, transform.position, transform.rotation);
             if(health >= 3)
 			{
                 health--;
@@ -33,7 +32,8 @@ public class Bullet : MonoBehaviour
 			{
                 Destroy(gameObject);
 			}
-            Destroy(collision.gameObject);
-        }
+			Instantiate(pop, transform.position, transform.rotation);
+			Destroy(collision.gameObject);
+		}
     }
 }
