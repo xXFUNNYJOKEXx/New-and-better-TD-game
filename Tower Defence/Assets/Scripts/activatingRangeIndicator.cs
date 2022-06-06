@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class activatingRangeIndicator : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class activatingRangeIndicator : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		if (rangeIndicator.activeInHierarchy == true)
+		if (rangeIndicator.activeInHierarchy == true && !IsMouseOverUI())
 		{
 			rangeIndicator.SetActive(false);
 		}
@@ -31,7 +31,7 @@ public class activatingRangeIndicator : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetMouseButtonDown(0) && Input.mousePosition != transform.position && timeRunOut == true)
+		if(Input.GetMouseButtonDown(0) && Input.mousePosition != transform.position && timeRunOut == true && !IsMouseOverUI())
 		{
 			rangeIndicator.SetActive(false);
 			timeRunOut = false;
@@ -49,12 +49,16 @@ public class activatingRangeIndicator : MonoBehaviour
 			}
 			StartCoroutine(waitTime());
 		}
-		
 	}
 
 	private IEnumerator waitTime()
 	{
 		yield return new WaitForEndOfFrame();
 		timeRunOut = true;
+	}
+
+	private bool IsMouseOverUI()
+	{
+		return EventSystem.current.IsPointerOverGameObject();
 	}
 }

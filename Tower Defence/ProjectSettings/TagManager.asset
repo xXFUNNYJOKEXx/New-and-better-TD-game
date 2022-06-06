@@ -9,6 +9,8 @@ TagManager:
   - Buying
   - Path
   - Platform
+  - UpgradesTag
+  - ShopTag
   layers:
   - Default
   - TransparentFX

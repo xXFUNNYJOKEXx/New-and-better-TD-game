@@ -6,10 +6,14 @@ public class Upgrade : MonoBehaviour
 {
     public GameObject upgradesUI;
 	public GameObject range;
+	public GameObject dMonkey;
+
+	[SerializeField] dartMonkey dartMonkeyScript;
+	[SerializeField] activatingRangeIndicator activatingRangeIndicatorScript;
 
 	void Update()
 	{
-		if (range.activeInHierarchy == true)
+		if (dMonkey.tag == "Idle" && range.activeInHierarchy == true)
 		{
 			upgradesUI.SetActive(true);
 		}
@@ -17,5 +21,11 @@ public class Upgrade : MonoBehaviour
 		{
 			upgradesUI.SetActive(false);
 		}
+	}
+
+	public void RangeIncrease()
+	{
+		dartMonkeyScript.range = 4f;
+		activatingRangeIndicatorScript.rangeIndicator.transform.localScale = new Vector2(1, 1);
 	}
 }
